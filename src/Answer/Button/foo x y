@@ -1,0 +1,25 @@
+import React, {MouseEvent} from 'react';
+import './App.css';
+
+
+function App() {
+    const fooX = () => {
+        console.log(100200);
+    }
+
+    const fooY = (someNumber:number) => {
+        console.log(someNumber);
+    }
+
+
+    return (
+        <div className="App">
+            <div>
+                <button onClick={fooX}>x</button>
+                <button onClick={() => fooY(100200)}>y</button>
+            </div>
+        </div>
+    );
+}
+
+export default App;
