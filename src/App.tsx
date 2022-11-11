@@ -1,40 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import Input from "./Answer/input/2v/input";
-import Button from "./Answer/input/2v/Button";
-
 
 function App() {
-    let [message, setMessage] = useState([
-        {message: 'message1'},
-        {message: 'message2'},
-        {message: 'message3'}
-    ])
-
-    let [title, setTitle] = useState('')
-
-    const addMessage = (title: string) => {
-        let newMessage = {message:title};
-        setMessage([newMessage,...message])
-    }
-
-    let callBackButtonHandler = () =>{
-    addMessage(title);
-    setTitle('')
-    }
-
     return (
         <div className="App">
-            <Input setTitle={setTitle} title={title}/>
-            <Button name={'+'} callback={callBackButtonHandler}/>
-            {message.map((el, index) => {
-                return (
-                    <div key={index}>{el.message}</div>
-                )
-            })}
-
+            <div>
+                <h3>What to learn</h3>
+                <div>
+                    <input/>
+                    <button>+</button>
+                </div>
+                <ul>
+                    <li><input type="checkbox" checked={true}/> <span>HTML&CSS</span></li>
+                    <li><input type="checkbox" checked={true}/> <span>JS</span></li>
+                    <li><input type="checkbox" checked={false}/> <span>React</span></li>
+                </ul>
+                <div>
+                    <button>All</button>
+                    <button>Active</button>
+                    <button>Completed</button>
+                </div>
+            </div>
         </div>
-    )
+    );
 }
 
 export default App;
